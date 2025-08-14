@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(13, 6%, 13%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(13, 6%, 13%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(13, 6%, 13%);
+  --primary: hsl(217, 91%, 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(13, 6%, 13%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(0, 0%, 98%);
+  --muted-foreground: hsl(13, 6%, 13%);
+  --accent: hsl(215, 51%, 93%);
+  --accent-foreground: hsl(217, 91%, 60%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 97%);
+  --ring: hsl(217, 91%, 60%);
+  --chart-1: hsl(217, 91%, 60%);
+  --chart-2: hsl(142, 76%, 36%);
+  --chart-3: hsl(38, 92%, 50%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(340, 75%, 51%);
+  --sidebar: hsl(0, 0%, 98%);
+  --sidebar-foreground: hsl(13, 6%, 13%);
+  --sidebar-primary: hsl(217, 91%, 60%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(215, 51%, 93%);
+  --sidebar-accent-foreground: hsl(217, 91%, 60%);
+  --sidebar-border: hsl(220, 13%, 91%);
+  --sidebar-ring: hsl(217, 91%, 60%);
+  --font-sans: 'Google Sans', 'Roboto', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --radius: 0.5rem;
+  
+  /* Custom Google-inspired colors */
+  --google-blue: hsl(217, 91%, 60%);
+  --hubspot-orange: hsl(20, 100%, 50%);
+  --google-green: hsl(142, 76%, 36%);
+  --dashboard-bg: hsl(0, 0%, 98%);
+  --dashboard-text: hsl(13, 6%, 13%);
+  --card-bg: hsl(0, 0%, 100%);
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(200, 7%, 92%);
+  --card: hsl(228, 10%, 10%);
+  --card-foreground: hsl(0, 0%, 85%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200, 7%, 92%);
+  --primary: hsl(217, 91%, 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195, 15%, 95%);
+  --secondary-foreground: hsl(13, 6%, 13%);
+  --muted: hsl(0, 0%, 9%);
+  --muted-foreground: hsl(210, 3%, 46%);
+  --accent: hsl(206, 70%, 8%);
+  --accent-foreground: hsl(217, 91%, 60%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210, 5%, 15%);
+  --input: hsl(208, 28%, 18%);
+  --ring: hsl(217, 91%, 60%);
+  --chart-1: hsl(217, 91%, 60%);
+  --chart-2: hsl(142, 76%, 36%);
+  --chart-3: hsl(38, 92%, 50%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(340, 75%, 51%);
+  --sidebar: hsl(228, 10%, 10%);
+  --sidebar-foreground: hsl(0, 0%, 85%);
+  --sidebar-primary: hsl(217, 91%, 60%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(206, 70%, 8%);
+  --sidebar-accent-foreground: hsl(217, 91%, 60%);
+  --sidebar-border: hsl(206, 16%, 26%);
+  --sidebar-ring: hsl(217, 91%, 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-dashboard-bg text-dashboard-text font-sans antialiased;
+  }
+
+  .font-google {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-google-blue {
+    color: var(--google-blue);
+  }
+  
+  .text-hubspot-orange {
+    color: var(--hubspot-orange);
+  }
+  
+  .text-google-green {
+    color: var(--google-green);
+  }
+  
+  .text-dashboard-text {
+    color: var(--dashboard-text);
+  }
+  
+  .bg-google-blue {
+    background-color: var(--google-blue);
+  }
+  
+  .bg-hubspot-orange {
+    background-color: var(--hubspot-orange);
+  }
+  
+  .bg-google-green {
+    background-color: var(--google-green);
+  }
+  
+  .bg-dashboard-bg {
+    background-color: var(--dashboard-bg);
+  }
+  
+  .bg-card-bg {
+    background-color: var(--card-bg);
+  }
+  
+  .border-google-blue {
+    border-color: var(--google-blue);
+  }
+  
+  .border-hubspot-orange {
+    border-color: var(--hubspot-orange);
+  }
+  
+  .border-google-green {
+    border-color: var(--google-green);
+  }
+}
