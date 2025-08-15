@@ -16,9 +16,11 @@ export default function DashboardHeader() {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <image>https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png</image>
-               
-              </div>
+              <img 
+                src="https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png"
+                alt="Unitx Lab AI Logo"
+                className="w-8 h-8 object-contain"
+              />
             </div>
             <div>
               <h1 className="text-xl font-semibold">Unitx Lab AI</h1>
