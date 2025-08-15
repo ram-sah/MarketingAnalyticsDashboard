@@ -32,7 +32,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           companyName: "Unitx Lab AI",
           businessType: "AI Integration",
           location: "US",
-          auditDate: new Date().toISOString().split('T')[0],
+          auditDate: "2025-08-15", // Static date as requested, can be made dynamic later
           overallScore: overallScore
         },
         keyMetrics: {
