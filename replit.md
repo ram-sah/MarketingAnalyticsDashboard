@@ -25,8 +25,9 @@ Preferred communication style: Simple, everyday language.
 
 ### Component Structure
 - **Dashboard Layout**: Modular component architecture with separate components for header, footer, metrics, charts, and data tables
-- **Chart Components**: Uses Recharts library for interactive data visualizations including line charts and pie charts
+- **Header Component**: Unitx Lab AI branded header with navigation menu, company info, and overall score indicator matching client design
 - **Footer Component**: Professional footer with contact button and copyright information matching client design specifications
+- **Chart Components**: Uses Recharts library for interactive data visualizations including line charts and pie charts
 - **Responsive Design**: Mobile-first approach with adaptive layouts using Tailwind's responsive utilities
 
 ### Data Integration Strategy
