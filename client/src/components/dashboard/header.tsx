@@ -1,3 +1,5 @@
+import { useLocation, Link } from "wouter";
+
 interface DashboardHeaderProps {
   clientLogoUrl?: string;
   companyName?: string;
@@ -5,7 +7,10 @@ interface DashboardHeaderProps {
   location?: string;
   auditDate?: string;
   overallScore?: number;
-  navigationItems?: string[];
+  navigationItems?: Array<{
+    label: string;
+    path: string;
+  }>;
 }
 
 export default function DashboardHeader({
@@ -16,16 +21,19 @@ export default function DashboardHeader({
   auditDate = "2025-08-10",
   overallScore = 65,
   navigationItems = [
-    'Overview',
-    'Scorecard', 
-    'Recommendations',
-    'Opportunities',
-    'Pillars',
-    'Competitors',
-    'Funnel',
-    'Content'
+    { label: 'Overview', path: '/dashboard' },
+    { label: 'Data Sources', path: '/data-sources' },
+    { label: 'Scorecard', path: '/scorecard' }, 
+    { label: 'Recommendations', path: '/recommendations' },
+    { label: 'Opportunities', path: '/opportunities' },
+    { label: 'Pillars', path: '/pillars' },
+    { label: 'Competitors', path: '/competitors' },
+    { label: 'Funnel', path: '/funnel' },
+    { label: 'Content', path: '/content' }
   ]
 }: DashboardHeaderProps) {
+  const [currentLocation] = useLocation();
+
   return (
     <header className="bg-slate-700 text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -55,19 +63,25 @@ export default function DashboardHeader({
         
         <nav>
           <div className="flex space-x-8">
-            {navigationItems.map((item, index) => (
-              <button
-                key={item}
-                className={`text-sm font-medium py-2 px-1 border-b-2 transition-colors ${
-                  index === 0 
-                    ? 'border-white text-white' 
-                    : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300'
-                }`}
-                data-testid={`nav-${item.toLowerCase()}`}
-              >
-                {item}
-              </button>
-            ))}
+            {navigationItems.map((item) => {
+              const isActive = currentLocation === item.path || 
+                             (item.path === '/dashboard' && currentLocation === '/');
+              
+              return (
+                <Link key={item.path} href={item.path}>
+                  <button
+                    className={`text-sm font-medium py-2 px-1 border-b-2 transition-colors ${
+                      isActive
+                        ? 'border-white text-white' 
+                        : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300'
+                    }`}
+                    data-testid={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
+                  >
+                    {item.label}
+                  </button>
+                </Link>
+              );
+            })}
           </div>
         </nav>
       </div>
