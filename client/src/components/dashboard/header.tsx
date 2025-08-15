@@ -19,8 +19,8 @@ export default function DashboardHeader({
   companyName = "Unitx Lab AI",
   businessType = "AI Integration",
   location = "US",
-  auditDate = "2025-08-10",
-  overallScore = 65,
+  auditDate = "2025-08-16",
+  overallScore = 95,
   navigationItems = [
     { label: 'Data Sources', path: '#data-sources' },
     { label: 'Key Performance', path: '#key-performance' }, 
