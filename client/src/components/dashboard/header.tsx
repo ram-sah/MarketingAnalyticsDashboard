@@ -1,4 +1,5 @@
 import { useLocation, Link } from "wouter";
+import { useState, useEffect } from "react";
 
 interface DashboardHeaderProps {
   clientLogoUrl?: string;
@@ -31,6 +32,31 @@ export default function DashboardHeader({
   ]
 }: DashboardHeaderProps) {
   const [currentLocation] = useLocation();
+  const [activeSection, setActiveSection] = useState('data-sources');
+
+  // Track which section is currently visible
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navigationItems.map(item => item.path.replace('#', ''));
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 120 && rect.bottom >= 120; // Account for header height
+        }
+        return false;
+      });
+      
+      if (currentSection && currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeSection, navigationItems]);
 
   return (
     <header className="bg-slate-700 text-white sticky top-0 z-50">
@@ -62,14 +88,24 @@ export default function DashboardHeader({
         <nav>
           <div className="flex space-x-8">
             {navigationItems.map((item, index) => {
-              const isActive = index === 0; // Default first item as active
+              const sectionId = item.path.replace('#', '');
+              const isActive = activeSection === sectionId;
               
               const handleClick = (e: React.MouseEvent) => {
                 e.preventDefault();
                 const targetId = item.path.replace('#', '');
                 const element = document.getElementById(targetId);
                 if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  // Scroll with offset to account for sticky header (approximately 100px)
+                  const elementPosition = element.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - 100;
+                  
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  });
+                  
+                  setActiveSection(targetId);
                 }
               };
               
