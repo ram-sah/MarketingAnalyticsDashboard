@@ -28,6 +28,7 @@ export default function DashboardHeader({
     { label: 'Funnel', path: '#funnel' },
     { label: 'Top Performing Pages', path: '#top-pages' },
     { label: 'Top Search Keywords', path: '#top-keywords' },
+    { label: 'Recent Leads', path: '#recent-leads' },
     { label: 'Cross-Platform', path: '#cross-platform' }
   ]
 }: DashboardHeaderProps) {
@@ -42,7 +43,7 @@ export default function DashboardHeader({
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 160 && rect.bottom >= 160; // Account for header height
+          return rect.top <= 200 && rect.bottom >= 200; // Account for header height
         }
         return false;
       });
@@ -96,9 +97,9 @@ export default function DashboardHeader({
                 const targetId = item.path.replace('#', '');
                 const element = document.getElementById(targetId);
                 if (element) {
-                  // Scroll with offset to account for sticky header (approximately 150px)
+                  // Scroll with offset to account for sticky header (approximately 200px)
                   const elementPosition = element.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - 150;
+                  const offsetPosition = elementPosition + window.pageYOffset - 200;
                   
                   window.scrollTo({
                     top: offsetPosition,

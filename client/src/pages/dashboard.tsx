@@ -119,7 +119,17 @@ export default function Dashboard() {
               />
             </section>
             
-            <div id="top-keywords"></div>
+            <section id="top-keywords" className="mb-8">
+              {/* Keywords are included in DataTables above */}
+            </section>
+            
+            <section id="recent-leads" className="mb-8">
+              <DataTables 
+                topPages={dashboardData?.topPages}
+                topKeywords={dashboardData?.topKeywords}
+                recentLeads={dashboardData?.recentLeads}
+              />
+            </section>
             
             <section id="cross-platform" className="mb-8">
               <CrossPlatformInsights />
