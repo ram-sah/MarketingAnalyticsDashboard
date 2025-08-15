@@ -17,13 +17,14 @@ export default function DashboardHeader() {
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
               <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
+                <image>https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png</image>
                 <span className="text-white font-bold text-xs">X</span>
               </div>
             </div>
             <div>
               <h1 className="text-xl font-semibold">Unitx Lab AI</h1>
               <p className="text-sm text-gray-300">AI Integration, US.</p>
-              <p className="text-xs text-gray-400">2025-07-22</p>
+              <p className="text-xs text-gray-400">2025-08-10</p>
             </div>
           </div>
           
