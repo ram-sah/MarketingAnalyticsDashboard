@@ -24,13 +24,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const conversionRate = latestSession?.conversionRate || "3.24";
 
       // Calculate overall score based on various metrics
-      const overallScore = Math.min(100, Math.floor(
-        (totalSessions / 1000) * 20 + 
-        (totalOrganicClicks / 100) * 15 + 
-        (totalNewLeads / 10) * 25 + 
-        parseFloat(conversionRate) * 10 + 
-        30 // Base score
-      ));
+      const overallScore = 95; // Fixed score as per user request
 
       const overview = {
         headerConfig: {
