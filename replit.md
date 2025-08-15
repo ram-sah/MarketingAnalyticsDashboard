@@ -25,15 +25,17 @@ Preferred communication style: Simple, everyday language.
 
 ### Component Structure
 - **Dashboard Layout**: Modular component architecture with separate components for header, footer, metrics, charts, and data tables
-- **Header Component**: Unitx Lab AI branded header with navigation menu, company info, and overall score indicator matching client design
+- **Header Component**: Dynamic, fully customizable header that accepts props for client branding, company info, and score display. Supports template-style variable replacement for easy client customization
 - **Footer Component**: Professional footer with contact button and copyright information matching client design specifications
 - **Chart Components**: Uses Recharts library for interactive data visualizations including line charts and pie charts
 - **Responsive Design**: Mobile-first approach with adaptive layouts using Tailwind's responsive utilities
 
 ### Data Integration Strategy
 - **Mock Data Layer**: Comprehensive mock data generators for GA4 sessions, page analytics, search console queries, HubSpot leads, and funnel metrics
-- **Aggregation Logic**: Server-side data processing to calculate trends, totals, and conversion rates
+- **Dynamic Header Configuration**: API-driven header customization with client-specific branding, company info, and calculated overall scores
+- **Aggregation Logic**: Server-side data processing to calculate trends, totals, conversion rates, and dynamic scoring algorithms
 - **Type Safety**: Shared TypeScript schemas between frontend and backend using Zod validation
+- **Client Configuration**: Utility functions for managing multiple client configurations with template-style variable support
 
 ### Development Environment
 - **Hot Reloading**: Vite development server with HMR for rapid development

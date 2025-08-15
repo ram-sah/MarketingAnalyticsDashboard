@@ -11,6 +11,14 @@ import {
 } from "@/components/dashboard";
 
 interface DashboardData {
+  headerConfig: {
+    clientLogoUrl: string;
+    companyName: string;
+    businessType: string;
+    location: string;
+    auditDate: string;
+    overallScore: number;
+  };
   keyMetrics: {
     totalSessions: number;
     organicClicks: number;
@@ -68,7 +76,14 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-dashboard-bg font-google text-dashboard-text">
-      <DashboardHeader />
+      <DashboardHeader 
+        clientLogoUrl={dashboardData?.headerConfig?.clientLogoUrl}
+        companyName={dashboardData?.headerConfig?.companyName}
+        businessType={dashboardData?.headerConfig?.businessType}
+        location={dashboardData?.headerConfig?.location}
+        auditDate={dashboardData?.headerConfig?.auditDate}
+        overallScore={dashboardData?.headerConfig?.overallScore}
+      />
       
       <main className="max-w-7xl mx-auto px-6 py-8">
         <ConnectionStatus />

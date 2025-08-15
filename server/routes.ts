@@ -23,7 +23,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const latestSession = ga4Sessions[ga4Sessions.length - 1];
       const conversionRate = latestSession?.conversionRate || "3.24";
 
+      // Calculate overall score based on various metrics
+      const overallScore = Math.min(100, Math.floor(
+        (totalSessions / 1000) * 20 + 
+        (totalOrganicClicks / 100) * 15 + 
+        (totalNewLeads / 10) * 25 + 
+        parseFloat(conversionRate) * 10 + 
+        30 // Base score
+      ));
+
       const overview = {
+        headerConfig: {
+          clientLogoUrl: "https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png",
+          companyName: "Unitx Lab AI",
+          businessType: "AI Integration",
+          location: "US",
+          auditDate: new Date().toISOString().split('T')[0],
+          overallScore: overallScore
+        },
         keyMetrics: {
           totalSessions,
           organicClicks: totalOrganicClicks,
