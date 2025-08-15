@@ -17,8 +17,11 @@ export default function DashboardHeader() {
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
               <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded flex items-center justify-center">
-                <image>https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png</image>
-                <span className="text-white font-bold text-xs">X</span>
+                <img 
+                  src="https://www.unitxlabs.com/wp-content/uploads/2025/01/black-square-256-favicon.png" 
+                  alt="Unitx Lab Logo" 
+                  className="w-full h-full object-contain rounded"
+                />
               </div>
             </div>
             <div>
