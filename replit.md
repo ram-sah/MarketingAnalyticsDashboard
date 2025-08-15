@@ -8,6 +8,15 @@ This is a comprehensive marketing analytics dashboard that aggregates data from 
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+### August 15, 2025
+- Converted navigation from separate page routing to anchor-based smooth scrolling within the same dashboard page
+- Added section IDs to all dashboard components for navigation targeting: data-sources, key-performance, traffic-trends, funnel, top-pages, top-keywords, recent-leads, cross-platform
+- Implemented dynamic active state tracking that updates as users scroll through sections
+- Fixed scroll positioning with 200px offset to properly display section headers below sticky navigation
+- Added Recent Leads section to navigation and dashboard layout
+
 ## System Architecture
 
 ### Frontend Architecture
