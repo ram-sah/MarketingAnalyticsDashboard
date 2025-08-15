@@ -86,7 +86,9 @@ export default function Dashboard() {
       />
       
       <main className="max-w-7xl mx-auto px-6 py-8">
-        <ConnectionStatus />
+        <section id="data-sources">
+          <ConnectionStatus />
+        </section>
         
         {isLoading ? (
           <div className="space-y-8">
@@ -96,20 +98,32 @@ export default function Dashboard() {
           </div>
         ) : (
           <>
-            <KeyMetrics data={dashboardData?.keyMetrics} />
+            <section id="key-performance" className="mb-8">
+              <KeyMetrics data={dashboardData?.keyMetrics} />
+            </section>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <TrafficChart data={dashboardData?.trafficTrends} />
-              <FunnelChart data={dashboardData?.funnelData} />
+              <section id="traffic-trends">
+                <TrafficChart data={dashboardData?.trafficTrends} />
+              </section>
+              <section id="funnel">
+                <FunnelChart data={dashboardData?.funnelData} />
+              </section>
             </div>
             
-            <DataTables 
-              topPages={dashboardData?.topPages}
-              topKeywords={dashboardData?.topKeywords}
-              recentLeads={dashboardData?.recentLeads}
-            />
+            <section id="top-pages" className="mb-8">
+              <DataTables 
+                topPages={dashboardData?.topPages}
+                topKeywords={dashboardData?.topKeywords}
+                recentLeads={dashboardData?.recentLeads}
+              />
+            </section>
             
-            <CrossPlatformInsights />
+            <div id="top-keywords"></div>
+            
+            <section id="cross-platform" className="mb-8">
+              <CrossPlatformInsights />
+            </section>
             
             <div className="text-center py-4">
               <p className="text-sm text-gray-500">

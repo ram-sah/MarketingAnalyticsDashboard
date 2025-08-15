@@ -21,13 +21,13 @@ export default function DashboardHeader({
   auditDate = "2025-08-10",
   overallScore = 65,
   navigationItems = [
-    { label: 'Data Sources', path: '/data-sources' },
-    { label: 'Key Performance', path: '/KeyPerformance' }, 
-    { label: 'Traffic Trends', path: '/TrafficTrends' },
-    { label: 'Funnel', path: '/LeadGenerationFunnel' },
-    { label: 'Top Performing Pages', path: '/TopPerformingPages' },
-    { label: 'Top Search Keywords', path: '/TopSearchKeywords' },
-    { label: 'Cross-Platform', path: '/Cross-PlatformInsights' }
+    { label: 'Data Sources', path: '#data-sources' },
+    { label: 'Key Performance', path: '#key-performance' }, 
+    { label: 'Traffic Trends', path: '#traffic-trends' },
+    { label: 'Funnel', path: '#funnel' },
+    { label: 'Top Performing Pages', path: '#top-pages' },
+    { label: 'Top Search Keywords', path: '#top-keywords' },
+    { label: 'Cross-Platform', path: '#cross-platform' }
   ]
 }: DashboardHeaderProps) {
   const [currentLocation] = useLocation();
@@ -61,23 +61,31 @@ export default function DashboardHeader({
         
         <nav>
           <div className="flex space-x-8">
-            {navigationItems.map((item) => {
-              const isActive = currentLocation === item.path || 
-                             (item.path === '/dashboard' && currentLocation === '/');
+            {navigationItems.map((item, index) => {
+              const isActive = index === 0; // Default first item as active
+              
+              const handleClick = (e: React.MouseEvent) => {
+                e.preventDefault();
+                const targetId = item.path.replace('#', '');
+                const element = document.getElementById(targetId);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              };
               
               return (
-                <Link key={item.path} href={item.path}>
-                  <button
-                    className={`text-sm font-medium py-2 px-1 border-b-2 transition-colors ${
-                      isActive
-                        ? 'border-white text-white' 
-                        : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300'
-                    }`}
-                    data-testid={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
-                  >
-                    {item.label}
-                  </button>
-                </Link>
+                <button
+                  key={item.path}
+                  onClick={handleClick}
+                  className={`text-sm font-medium py-2 px-1 border-b-2 transition-colors ${
+                    isActive
+                      ? 'border-white text-white' 
+                      : 'border-transparent text-gray-300 hover:text-white hover:border-gray-300'
+                  }`}
+                  data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {item.label}
+                </button>
               );
             })}
           </div>
