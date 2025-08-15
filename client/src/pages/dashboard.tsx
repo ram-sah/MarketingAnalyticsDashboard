@@ -6,7 +6,8 @@ import {
   TrafficChart,
   FunnelChart,
   DataTables,
-  CrossPlatformInsights
+  CrossPlatformInsights,
+  DashboardFooter
 } from "@/components/dashboard";
 
 interface DashboardData {
@@ -110,6 +111,7 @@ export default function Dashboard() {
           </>
         )}
       </main>
+      <DashboardFooter />
     </div>
   );
 }

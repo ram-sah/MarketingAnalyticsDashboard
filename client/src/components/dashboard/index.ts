@@ -5,3 +5,4 @@ export { default as TrafficChart } from './traffic-chart';
 export { default as FunnelChart } from './funnel-chart';
 export { default as DataTables } from './data-tables';
 export { default as CrossPlatformInsights } from './insights';
+export { default as DashboardFooter } from './footer';
