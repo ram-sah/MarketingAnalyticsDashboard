@@ -21,15 +21,13 @@ export default function DashboardHeader({
   auditDate = "2025-08-10",
   overallScore = 65,
   navigationItems = [
-    { label: 'Overview', path: '/dashboard' },
     { label: 'Data Sources', path: '/data-sources' },
-    { label: 'Scorecard', path: '/scorecard' }, 
-    { label: 'Recommendations', path: '/recommendations' },
-    { label: 'Opportunities', path: '/opportunities' },
-    { label: 'Pillars', path: '/pillars' },
-    { label: 'Competitors', path: '/competitors' },
-    { label: 'Funnel', path: '/funnel' },
-    { label: 'Content', path: '/content' }
+    { label: 'Key Performance', path: '/KeyPerformance' }, 
+    { label: 'Traffic Trends', path: '/TrafficTrends' },
+    { label: 'Funnel', path: '/LeadGenerationFunnel' },
+    { label: 'Top Performing Pages', path: '/TopPerformingPages' },
+    { label: 'Top Search Keywords', path: '/TopSearchKeywords' },
+    { label: 'Cross-Platform', path: '/Cross-PlatformInsights' }
   ]
 }: DashboardHeaderProps) {
   const [currentLocation] = useLocation();
