@@ -42,7 +42,7 @@ export default function DashboardHeader({
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 120 && rect.bottom >= 120; // Account for header height
+          return rect.top <= 160 && rect.bottom >= 160; // Account for header height
         }
         return false;
       });
@@ -96,9 +96,9 @@ export default function DashboardHeader({
                 const targetId = item.path.replace('#', '');
                 const element = document.getElementById(targetId);
                 if (element) {
-                  // Scroll with offset to account for sticky header (approximately 100px)
+                  // Scroll with offset to account for sticky header (approximately 150px)
                   const elementPosition = element.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - 100;
+                  const offsetPosition = elementPosition + window.pageYOffset - 150;
                   
                   window.scrollTo({
                     top: offsetPosition,
